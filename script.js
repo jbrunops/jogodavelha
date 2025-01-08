@@ -43,3 +43,39 @@ function verificarVitoria() {
   }
 }
 
+celulas.forEach((celula) => {
+  celula.addEventListener("click", () => {
+    if (celula.textContent === "") {
+      celula.textContent = jogadorAtual;
+      const vencedor = verificarVitoria();
+
+      if (vencedor) {
+        alert(`O jogador ${vencedor} venceu!`);
+        atualizarPlacar(vencedor);
+        reiniciarJogo();
+      } else if ([...celulas].every((celula) => celula.textContent !== "")) {
+        alert("Empate!");
+        reiniciarJogo();
+      } else {
+        // Alternar para o próximo jogador
+        jogadorAtual = jogadorAtual === "X" ? "O" : "X";
+      }
+    }
+  });
+});
+
+const placarX = document.getElementById("placar-x");
+const placarO = document.getElementById("placar-o");
+
+function atualizarPlacar(vencedor) {
+  if (vencedor === "X") {
+    placarX.textContent = parseInt(placarX.textContent) + 1;
+  } else if (vencedor === "O") {
+    placarO.textContent = parseInt(placarO.textContent) + 1;
+  }
+}
+
+function reiniciarJogo() {
+  celulas.forEach((celula) => (celula.textContent = "")); // Limpa todas as células
+  jogadorAtual = "X"; // Reseta para o jogador X
+}
