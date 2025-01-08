@@ -21,8 +21,16 @@ h1 {
 }
 
 #tabuleiro {
+  display: grid;
+  grid-template-columns: repeat(3, 6.25rem);
+  grid-template-rows: repeat(3, 6.25rem);
+  gap: 5px;
+  margin: 0 auto 1.25rem;
+}
+
+#tabuleiro div {
   width: 6.25rem;
-  height: 0.25rem;
+  height: 6.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,4 +40,25 @@ h1 {
   border: 2px solid #ccc;
   cursor: pointer;
   user-select: none;
+}
+
+#tabuleiro div:hover {
+  background-color: black;
+}
+
+#reiniciar {
+  padding: 0.625rem 1.25rem;
+  font-size: 1rem;
+  background-color: #274737;
+  color: aliceblue;
+  border: none;
+  border-radius: 0.51rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+#reiniciar:hover {
+  background-color: #ccc;
+  color: #274737;
+  font-weight: 700;
 }
