@@ -26,6 +26,7 @@ h1 {
   grid-template-rows: repeat(3, 6.25rem);
   gap: 5px;
   margin: 0 auto 1.25rem;
+  justify-content: center;
 }
 
 #tabuleiro div {
